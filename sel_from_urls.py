@@ -17,12 +17,12 @@ def read_urls_from_file(file_path):
 urls = read_urls_from_file("job_links.txt")
 
 print(urls)
-count = 0
+count = 15
 driver = Driver(uc = True)
 for url in urls:
     driver.uc_open_with_reconnect(url, 4)
     with open(f"{count}.html", "w", encoding="utf-8") as file:
         file.write(driver.page_source)
-    time.sleep(2)
+    time.sleep(10)
     count += 1
 
